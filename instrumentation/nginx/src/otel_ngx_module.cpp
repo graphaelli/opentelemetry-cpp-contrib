@@ -649,7 +649,7 @@ static ngx_int_t OtelNgxStart(ngx_cycle_t* cycle) {
 
   auto provider = nostd::shared_ptr<trace::TracerProvider>(new sdktrace::TracerProvider(
     processor,
-    opentelemetry::sdk::resource::Resource::Create({{"service.name", agentConf->service.name}})));
+    opentelemetry::sdk::resource::Resource::Create({{"service", agentConf->service.name}})));
 
   trace::Provider::SetTracerProvider(provider);
 
